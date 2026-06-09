@@ -41,8 +41,11 @@ def dashboard():
 
     st.title("Household Consumption Dashboard")
 
-    st.sidebar.header("Filter By Month:")
-    st.sidebar.button("Logout", on_click=logout)
+    st.subheader ("Purchase Data")
+
+    st.sidebar.image ("Plattered Logo.png")
+    st.sidebar.header("Purchase Data Filter")
+    
 
     # LOAD DATA
     purchasedate_df = pd.read_csv("Purchase_Date.csv")
@@ -58,8 +61,12 @@ def dashboard():
     purchasedur_df = purchasedur_df[purchasedur_df["Month"] == selected_month].iloc[0]
     amtspent_df = amtspent_df[amtspent_df["Month"] == selected_month].iloc[0]
 
-    # STYLE
-    st.markdown("""
+   
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
     <style>
     .kpi-card {
         background: rgba(255, 255, 255, 0.08);
@@ -71,39 +78,62 @@ def dashboard():
     }
     </style>
     """, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+       
         st.metric("Purchase Date", purchasedate_df["Purchase_Date"])
-        st.markdown('</div>', unsafe_allow_html=True)
+    
 
     with col2:
-        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+        st.markdown("""
+    <style>
+    .kpi-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 18px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+        
         st.metric("Purchase Duration", purchasedur_df["Duration"])
-        st.markdown('</div>', unsafe_allow_html=True)
+       
 
     with col3:
-        st.markdown('<div class="kpi-card">', unsafe_allow_html=True)
+        st.markdown("""
+    <style>
+    .kpi-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 18px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    </style>
+    """, unsafe_allow_html=True)
+        
         st.metric("Amount Spent", f" ₱ {amtspent_df['Amt_Spent']:,.2f}")
-        st.markdown('</div>', unsafe_allow_html=True)
 
-st.subheader ("Purchase Breakdown")
 
-df = pd.read_csv("Purchase_Breakdown.csv")
     
-# Create dropdown of months
- month_list = sorted(df["Month"].dropna().unique())
 
- #piechart selectbox
-st.sidebar.header ("Purchase Breakdown Filter")
-selected_month = st.sidebar.selectbox(
-     "Select Month",
-    month_list
-)
+   
+    st.subheader ("Purchase Breakdown")
 
-st.sidebar.button("Logout", on_click=logout)
+    df = pd.read_csv("Purchase_Breakdown.csv")
+    
+        # Create dropdown of months
+    month_list = sorted(df["Month"].dropna().unique())
+
+    #piechart selectbox
+    st.sidebar.header ("Purchase Breakdown Filter")
+    selected_month = st.sidebar.selectbox(
+        "Select Month",
+        month_list
+    )
+
+    st.sidebar.button("Logout", on_click=logout)
 
     # Filter dataframe
     filtered_df = df[df["Month"] == selected_month]
@@ -126,6 +156,8 @@ st.sidebar.button("Logout", on_click=logout)
 
     st.plotly_chart(fig)
 
+
+        
 
 # ----------------------------
 # APP CONTROLLER (OUTSIDE FUNCTIONS)
