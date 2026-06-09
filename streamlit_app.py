@@ -89,6 +89,44 @@ def dashboard():
         st.metric("Amount Spent", f" ₱ {amtspent_df['Amt_Spent']:,.2f}")
         st.markdown('</div>', unsafe_allow_html=True)
 
+st.subheader ("Purchase Breakdown")
+
+    df = pd.read_csv("Purchase_Breakdown.csv")
+    
+        # Create dropdown of months
+    month_list = sorted(df["Month"].dropna().unique())
+
+    #piechart selectbox
+    st.sidebar.header ("Purchase Breakdown Filter")
+    selected_month = st.sidebar.selectbox(
+        "Select Month",
+        month_list
+    )
+
+    st.sidebar.button("Logout", on_click=logout)
+
+    # Filter dataframe
+    filtered_df = df[df["Month"] == selected_month]
+
+    # Create pie chart
+    fig = px.pie(
+        filtered_df,
+        values="Amt_Spent",
+        names="Purchase_Category",
+        
+)
+
+    
+
+     # ✨ Transparent / frosted-style background
+    fig.update_layout(
+            paper_bgcolor="rgba(255,255,255,0.6)",
+            plot_bgcolor="rgba(255,255,255,0.6)"
+    )
+
+    st.plotly_chart(fig)
+
+
 # ----------------------------
 # APP CONTROLLER (OUTSIDE FUNCTIONS)
 # ----------------------------
