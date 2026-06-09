@@ -91,19 +91,19 @@ def dashboard():
 
 st.subheader ("Purchase Breakdown")
 
-    df = pd.read_csv("Purchase_Breakdown.csv")
+df = pd.read_csv("Purchase_Breakdown.csv")
     
-        # Create dropdown of months
-    month_list = sorted(df["Month"].dropna().unique())
+# Create dropdown of months
+ month_list = sorted(df["Month"].dropna().unique())
 
-    #piechart selectbox
-    st.sidebar.header ("Purchase Breakdown Filter")
-    selected_month = st.sidebar.selectbox(
-        "Select Month",
-        month_list
-    )
+ #piechart selectbox
+st.sidebar.header ("Purchase Breakdown Filter")
+selected_month = st.sidebar.selectbox(
+     "Select Month",
+    month_list
+)
 
-    st.sidebar.button("Logout", on_click=logout)
+st.sidebar.button("Logout", on_click=logout)
 
     # Filter dataframe
     filtered_df = df[df["Month"] == selected_month]
