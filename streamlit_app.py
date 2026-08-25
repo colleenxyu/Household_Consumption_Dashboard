@@ -197,7 +197,7 @@ def dashboard():
         purchase_df[col] = pd.to_numeric(purchase_df[col], errors="coerce").fillna(0)
 
     # 3. Filter Widgets (Month & Category)
-    col_filter1, col_filter2 = st.columns(2)
+    col_filter1, col_filter2, col_filter3 = st.columns(3)
 
     with col_filter1:
         months_list = ["All Months"] + list(purchase_df["Month"].dropna().unique())
@@ -207,6 +207,10 @@ def dashboard():
         categories_list = ["All Categories"] + list(purchase_df["Purchase_Category"].dropna().unique())
         selected_category = st.selectbox("Filter by Category", options=categories_list)
 
+    with col_filter3:
+        items_list = ["All Items"] + sorted(list(vegpurchasebd_df["Purchase_Name"].dropna().unique()))
+        selected_item = st.selectbox("Filter by Item", options=items_list)
+
     # Apply Filters
     filtered_df = purchase_df.copy()
 
@@ -215,6 +219,10 @@ def dashboard():
 
     if selected_category != "All Categories":
         filtered_df = filtered_df[filtered_df["Purchase_Category"] == selected_category]
+    
+    if selected_item != "All Items":
+        filtered_df = filtered_df[filtered_df["Purchase_Name"] == selected_item]
+
 
     # Calculate relative cost share for micro-bars
     max_amount = filtered_df["Amt_Spent"].max() if not filtered_df.empty and filtered_df["Amt_Spent"].max() > 0 else 1
