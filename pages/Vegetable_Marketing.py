@@ -39,7 +39,7 @@ def logout():
 # ----------------------------
 def dashboard():
 
-    st.title("Vegetable Marketing")
+    st.title("Vegetable Marketing Page")
 
     st.subheader ("Purchase Data")
 
@@ -51,8 +51,25 @@ def dashboard():
     st.sidebar.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing")
 
 
+    st.sidebar.header("Vegetable Purchase Filters")
+    #LOAD DATA
+    vegpurchasedate_df = pd.read_csv ("VegPurchaseDate.csv")
+    vegduration_df = pd.read_csv ("VegDuration.csv")
+    vegamount_df = pd.read_csv ("VegTotalAmt.csv") 
 
-    st.sidebar.header("Meat Purchase Data Filter")
+    #SELECTOR
+    selected_month = st.sidebar.selectbox(
+        "Select Month",
+        vegpurchasedate_df["Month"].dropna()
+    )
+
+    vegpurchasedate_df = vegpurchasedate_df[vegpurchasedate_df["Month"] == selected_month].iloc[0]
+    vegduration_df = vegduration_df[vegduration_df["Month"] == selected_month].iloc[0]
+    vegamount_df = vegamount_df[vegamount_df["Month"] == selected_month].iloc[0]
+
+
+
+    st.sidebar.header("Meat Purchase Filters")
     
     # LOAD DATA
     purchasedate_df = pd.read_csv("Purchase_Date.csv")
@@ -86,7 +103,7 @@ def dashboard():
     </style>
     """, unsafe_allow_html=True)
        
-        st.metric("Purchase Date", purchasedate_df["Purchase_Date"])
+        st.metric("Purchase Date", vegpurchasedate_df["Purchase_Date_Veg"])
     
 
     with col2:
@@ -103,7 +120,7 @@ def dashboard():
     </style>
     """, unsafe_allow_html=True)
         
-        st.metric("Purchase Duration", purchasedur_df["Duration"])
+        st.metric("Purchase Duration", vegduration_df["Veg_Duration"])
        
 
     with col3:
@@ -120,49 +137,13 @@ def dashboard():
     </style>
     """, unsafe_allow_html=True)
         
-        st.metric("Amount Spent", f" ₱ {amtspent_df['Amt_Spent']:,.2f}")
+        st.metric("Amount Spent", f" ₱ {vegamount_df['Total_Amt_Veg']:,.2f}")
 
 
     
 
    
-    st.subheader ("Purchase Breakdown")
-
-    df = pd.read_csv("Purchase_Breakdown.csv")
     
-        # Create dropdown of months
-    month_list = sorted(df["Month"].dropna().unique())
-
-    #piechart selectbox
-    st.sidebar.header ("Purchase Breakdown Filter")
-    selected_month = st.sidebar.selectbox(
-        "Select Month",
-        month_list
-    )
-
-    st.sidebar.button("Logout", on_click=logout)
-
-    # Filter dataframe
-    filtered_df = df[df["Month"] == selected_month]
-
-    # Create pie chart
-    fig = px.pie(
-        filtered_df,
-        values="Amt_Spent",
-        names="Purchase_Category",
-        
-)
-
-    
-
-     # ✨ Transparent / frosted-style background
-    fig.update_layout(
-            paper_bgcolor="rgba(255,255,255,0.6)",
-            plot_bgcolor="rgba(255,255,255,0.6)"
-    )
-
-    st.plotly_chart(fig)
-
 
         
 

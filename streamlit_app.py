@@ -44,6 +44,7 @@ def logout():
 # ----------------------------
 def dashboard():
 
+
     st.title("Meat Marketing Page")
 
     st.sidebar.image ("Plattered Logo.png")
@@ -57,7 +58,7 @@ def dashboard():
 
 
     ########### PURCHASE DATA 
-    st.sidebar.title("Meat Purchase Data Filter")
+    st.sidebar.title("Meat Purchase Filters")
 
     # LOAD DATA
     purchasedate_df = pd.read_csv("Purchase_Date.csv")
