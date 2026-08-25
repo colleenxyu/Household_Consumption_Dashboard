@@ -1,111 +1,111 @@
 ﻿Month,Purchase_Name,Unit_Price,Unit_Name,Purchase_Qty,Amount
-January,Broccoli,150.00,kg,1.446 kg,217.00
-January,Shitake Mushroom,120.00,pks,2 pks,240.00
-January,French Beans,170.00,kg,0.500 kg,85.00
-January,Cherry Tomato,200.00,kg,1.082 kg,216.50
-January,Garlic,150.00,kg,1.060 kg,159.00
-January,Parsley,200.00,kg,0.268 kg,53.50
-January,Basil,300.00,kg,0.262 kg,78.50
-January,Potato,120.00,kg,1.016 kg,122.00
-January,Ampalaya,160.00,kg,0.530 kg,84.75
-January,Baguio Spinach,120.00,kg,1.124 kg,135.00
-January,Wansoy,140.00,kg,0.258 kg,36.00
-January,Cauliflower,110.00,kg,1.212 kg,133.25
-January,Mint,230.00,kg,0.100 kg,23.00
-January,Lemon,26.00,pc,6 pc,156.00
-January,White Onion,150.00,kg,1.062 kg,159.25
-January,Marble Potato,65.00,kg,0.502 kg,32.75
-January,Mango,200.00,kg,1.202 kg,210.50
-January,Pineapple,130.00,kg,1 kg,130.00
-February,Togue,75.00,kg,1.094 kg,82.00
-February,Broccoli,180.00,kg,1.300 kg,234.00
-February,Cauliflower,90.00,kg,1.184 kg,106.00
-February,White Onion,130.00,kg,1.038 kg,135.00
-February,Carrots,80.00,kg,1.020 kg,81.00
-February,Camote,90.00,kg,1.172 kg,105.00
-February,Cherry Tomato,200.00,kg,1.020 kg,204.00
-February,Corn,100.00,kg,1.034 kg,103.00
-March,Corn,80.00,kg,0.768 kg,61.50
-March,Cucumber,90.00,kg,1.066 kg,96.00
-March,Garlic,150.00,kg,1.030 kg,154.50
-March,Lemon,26.00,pc,4 pc,104.00
-March,Potato,85.00,kg,1.030 kg,87.50
-March,White Onion,150.00,kg,1.146 kg,172.00
-March,Leeks,100.00,kg,0.300 kg,30.00
-March,Marble Potato,60.00,kg,0.558 kg,33.50
-March,Carrots,150.00,kg,1.086 kg,163.00
-March,Baguio Spinach,150.00,kg,0.528 kg,79.25
-March,Broccoli,170.00,kg,1.530 kg,260.00
-March,Basil,200.00,kg,0.266 kg,53.25
-March,Wansoy,160.00,kg,0.284 kg,45.50
-March,Cherry Tomato,150.00,kg,1.032 kg,154.75
-April,Corn,90.00,kg,0.982 kg,88.50
-April,Baguio Spinach,140.00,kg,1.020 kg,142.75
-April,Broccoli,170.00,kg,1.092 kg,185.75
-April,Potato,90.00,kg,2.096 kg,188.75
-April,Wansoy,180.00,kg,0.262 kg,47.25
-April,Marble Potato,60.00,kg,1.040 kg,62.50
-April,Cauliflower,110.00,kg,0.958 kg,105.50
-April,White Onion,140.00,kg,1.570 kg,219.75
-April,Squash,80.00,kg,1.396 kg,111.75
-April,Sayote,40.00,kg,0.446 kg,17.75
-April,Cherry Tomato,210.00,kg,1.506 kg,316.25
-April,French Beans,170.00,kg,1.026 kg,174.50
-April,Camote,100.00,kg,1.150 kg,115.00
-April,Cucumber,100.00,kg,1.084 kg,108.50
-April,Lemon,27.00,pc,4 pc,108.00
-May,Squash,80.00,kg,1.010 kg,80.00
-May,Cabbage,40.00,kg,1.782 kg,71.00
-May,Carrots,150.00,kg,1.118 kg,167.00
-May,Cauliflower,90.00,kg,2.198 kg,197.00
-May,Potato,80.00,kg,1.558 kg,124.00
-May,Marble Potato,60.00,kg,1.072 kg,64.00
-May,Red Onion,180.00,kg,0.544 kg,98.00
-May,White Onion,150.00,kg,1.160 kg,174.00
-May,Baguio Spinach,150.00,kg,1.074 kg,161.00
-May,Cherry Tomato,200.00,kg,1.074 kg,214.00
-May,Cucumber,95.00,kg,0.530 kg,50.00
-May,Sayote,55.00,kg,1.098 kg,60.00
-May,French Beans,200.00,kg,1 kg,200
-June,French Beans,320.00,kg,0.506 kg,162.00
-June,Marble Potato,90.00,kg,1.062 kg,95.50
-June,Mango,65.00,kg,1 kg,65.00
-June,Carrots,150.00,kg,1.626 kg,244.00
-June,Cauliflower,180.00,kg,1.082 kg,194.75
-June,Sayote,90.00,kg,1.284 kg,115.50
-June,Broccoli,210.00,kg,1.070 kg,224.75
-June,Garlic,150.00,kg,1.016 kg,152.50
-June,Korean Radish,110.00,kg,0.614 kg,67.50
-June,Lemon,30.00,pc,3 pc,90.00
-June,Potato,130.00,kg,1.528 kg,198.75
-June,Kangkong,25.00,tali,2 tali,50.00
-June,White Onion,160.00,kg,1.036 kg,165.75
-June,Cherry Tomato,200.00,kg,1.578 kg,315.50
-June,French Beans,320.00,kg,0.514 kg,164.50
-July,Cucumber,85.00,kg,1.518 kg,129.00
-July,French Beans,120.00,kg,0.542 kg,65.00
-July,Squash,65.00,kg,0.820 kg,53.25
-July,Broccoli,170.00,kg,1.712 kg,291.00
-July,Zucchini,70.00,kg,1.182 kg,82.75
-July,Carrots,110.00,kg,1.160 kg,127.50
-July,Sitaw,180.00,kg,0.260 kg,46.75
-July,Potato,120.00,kg,1.538 kg,184.50
-July,Kangkong,20.00,kg,2 tali,40.00
-July,Cherry Tomato,200.00,kg,1.566 kg,313.25
-July,Lemon,27.00,pc,6 pc,162.00
-July,White Onion,160.00,kg,1.004 kg,160.75
-July,Marble Potato,65.00,kg,1.504 kg,97.75
-July,Tomato,125.00,kg,0.538 kg,67.25
-July,White Onion,160.00,kg,1.028 kg,164.50
-July,Corn,95.00,kg,1.834 kg,174.25
-July,Broccoli,200.00,kg,1.038 kg,207.50
-July,Cauliflower,140.00,kg,1.082 kg,151.50
-July,Sayote,60.00,kg,1.176 kg,70.50
-July,Tomato,120.00,kg,1.028 kg,123.25
-July,Basil,150.00,kg,0.214 kg,32.00
-August,French Beans,120.00,kg,1.034 kg,124.00
-August,Baguio Spinach,150.00,kg,1.004 kg,150.50
-August,Cherry Tomato,500.00,kg,1.022 kg,511.00
-August,Red Bellpepper,140.00,kg,1.074 kg,150.25
-August,Marble Potato,70.00,kg,1.044 kg,73.00
-August,Carrots,90.00,kg,1.084 kg,97.50
+January,Broccoli,150,kg,1.45,217
+January,Shitake Mushroom,120,pks,2.00,240
+January,French Beans,170,kg,0.50,85
+January,Cherry Tomato,200,kg,1.08,216.5
+January,Garlic,150,kg,1.06,159
+January,Parsley,200,kg,0.27,53.5
+January,Basil,300,kg,0.26,78.5
+January,Potato,120,kg,1.02,122
+January,Ampalaya,160,kg,0.53,84.75
+January,Baguio Spinach,120,kg,1.12,135
+January,Wansoy,140,kg,0.26,36
+January,Cauliflower,110,kg,1.21,133.25
+January,Mint,230,kg,0.10,23
+January,Lemon,26,pc,6.00,156
+January,White Onion,150,kg,1.06,159.25
+January,Marble Potato,65,kg,0.50,32.75
+January,Mango,200,kg,1.20,210.5
+January,Pineapple,130,kg,1.00,130
+February,Togue,75,kg,1.09,82
+February,Broccoli,180,kg,1.30,234
+February,Cauliflower,90,kg,1.18,106
+February,White Onion,130,kg,1.04,135
+February,Carrots,80,kg,1.02,81
+February,Camote,90,kg,1.17,105
+February,Cherry Tomato,200,kg,1.02,204
+February,Corn,100,kg,1.03,103
+March,Corn,80,kg,0.77,61.5
+March,Cucumber,90,kg,1.07,96
+March,Garlic,150,kg,1.03,154.5
+March,Lemon,26,pc,4.00,104
+March,Potato,85,kg,1.03,87.5
+March,White Onion,150,kg,1.15,172
+March,Leeks,100,kg,0.30,30
+March,Marble Potato,60,kg,0.56,33.5
+March,Carrots,150,kg,1.09,163
+March,Baguio Spinach,150,kg,0.53,79.25
+March,Broccoli,170,kg,1.53,260
+March,Basil,200,kg,0.27,53.25
+March,Wansoy,160,kg,0.28,45.5
+March,Cherry Tomato,150,kg,1.03,154.75
+April,Corn,90,kg,0.98,88.5
+April,Baguio Spinach,140,kg,1.02,142.75
+April,Broccoli,170,kg,1.09,185.75
+April,Potato,90,kg,2.10,188.75
+April,Wansoy,180,kg,0.26,47.25
+April,Marble Potato,60,kg,1.04,62.5
+April,Cauliflower,110,kg,0.96,105.5
+April,White Onion,140,kg,1.57,219.75
+April,Squash,80,kg,1.40,111.75
+April,Sayote,40,kg,0.45,17.75
+April,Cherry Tomato,210,kg,1.51,316.25
+April,French Beans,170,kg,1.03,174.5
+April,Camote,100,kg,1.15,115
+April,Cucumber,100,kg,1.08,108.5
+April,Lemon,27,pc,4.00,108
+May,Squash,80,kg,1.01,80
+May,Cabbage,40,kg,1.78,71
+May,Carrots,150,kg,1.12,167
+May,Cauliflower,90,kg,2.20,197
+May,Potato,80,kg,1.56,124
+May,Marble Potato,60,kg,1.07,64
+May,Red Onion,180,kg,0.54,98
+May,White Onion,150,kg,1.16,174
+May,Baguio Spinach,150,kg,1.07,161
+May,Cherry Tomato,200,kg,1.07,214
+May,Cucumber,95,kg,0.53,50
+May,Sayote,55,kg,1.10,60
+May,French Beans,200,kg,1.00,200
+June,French Beans,320,kg,0.51,162
+June,Marble Potato,90,kg,1.06,95.5
+June,Mango,65,kg,1.00,65
+June,Carrots,150,kg,1.63,244
+June,Cauliflower,180,kg,1.08,194.75
+June,Sayote,90,kg,1.28,115.5
+June,Broccoli,210,kg,1.07,224.75
+June,Garlic,150,kg,1.02,152.5
+June,Korean Radish,110,kg,0.61,67.5
+June,Lemon,30,pc,3.00,90
+June,Potato,130,kg,1.53,198.75
+June,Kangkong,25,tali,2.00,50
+June,White Onion,160,kg,1.04,165.75
+June,Cherry Tomato,200,kg,1.58,315.5
+June,French Beans,320,kg,0.51,164.5
+July,Cucumber,85,kg,1.52,129
+July,French Beans,120,kg,0.54,65
+July,Squash,65,kg,0.82,53.25
+July,Broccoli,170,kg,1.71,291
+July,Zucchini,70,kg,1.18,82.75
+July,Carrots,110,kg,1.16,127.5
+July,Sitaw,180,kg,0.26,46.75
+July,Potato,120,kg,1.54,184.5
+July,Kangkong,20,kg,2.00,40
+July,Cherry Tomato,200,kg,1.57,313.25
+July,Lemon,27,pc,6.00,162
+July,White Onion,160,kg,1.00,160.75
+July,Marble Potato,65,kg,1.50,97.75
+July,Tomato,125,kg,0.54,67.25
+July,White Onion,160,kg,1.03,164.5
+July,Corn,95,kg,1.83,174.25
+July,Broccoli,200,kg,1.04,207.5
+July,Cauliflower,140,kg,1.08,151.5
+July,Sayote,60,kg,1.18,70.5
+July,Tomato,120,kg,1.03,123.25
+July,Basil,150,kg,0.21,32
+August,French Beans,120,kg,1.03,124
+August,Baguio Spinach,150,kg,1.00,150.5
+August,Cherry Tomato,500,kg,1.02,511
+August,Red Bellpepper,140,kg,1.07,150.25
+August,Marble Potato,70,kg,1.04,73
+August,Carrots,90,kg,1.08,97.5
