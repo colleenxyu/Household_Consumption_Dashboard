@@ -120,7 +120,7 @@ def dashboard():
     </style>
     """, unsafe_allow_html=True)
         
-        st.metric("Purchase Duration", vegduration_df["Veg_Duration"])
+        st.metric("Purchase Duration", f"{vegduration_df["Veg_Duration"]} days")
        
 
     with col3:
