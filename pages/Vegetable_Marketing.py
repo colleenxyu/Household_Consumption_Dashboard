@@ -46,68 +46,6 @@ def login_screen():
         else:
             st.error("Incorrect password")
 
-st.title("Purchase Breakdown")
-
-# 1. Load local CSV file directly
-vegpurchasebd_df = pd.read_csv("VegPurchaseBD.csv")
-
-# Clean numeric columns to prevent calculation errors
-vegpurchasebd_df["Amount"] = pd.to_numeric(vegpurchasebd_df["Amount"], errors="coerce").fillna(0)
-vegpurchasebd_df["Purchase_Qty"] = pd.to_numeric(vegpurchasebd_df["Purchase_Qty"], errors="coerce").fillna(0)
-vegpurchasebd_df["Unit_Price"] = pd.to_numeric(vegpurchasebd_df["Unit_Price"], errors="coerce").fillna(0)
-
-# 2. Month Filter Widget
-months_list = ["All Months"] + list(vegpurchasebd_df["Month"].dropna().unique())
-selected_month = st.selectbox("Filter by Month", options=months_list)
-
-# Apply filter
-if selected_month != "All Months":
-    filtered_df = vegpurchasebd_df[vegpurchasebd_df["Month"] == selected_month].copy()
-else:
-    filtered_df = vegpurchasebd_df.copy()
-
-# Calculate relative cost share for micro-bars
-max_amount = filtered_df["Amount"].max() if not filtered_df.empty and filtered_df["Amount"].max() > 0 else 1
-filtered_df["Cost Share"] = filtered_df["Amount"] / max_amount
-
-# 3. Key Metrics Summary
-total_spent = filtered_df["Amount"].sum()
-col1, col2 = st.columns(2)
-col1.metric("Total Spent", f"₱{total_spent:,.2f}")
-col2.metric("Items Purchased", f"{len(filtered_df)} items")
-
-st.divider()
-
-# 4. Interactive Micro-Bar Table
-st.dataframe(
-    filtered_df[[
-        "Month", 
-        "Purchase_Name", 
-        "Unit_Price", 
-        "Unit_Name", 
-        "Purchase_Qty", 
-        "Amount", 
-        "Cost Share"
-    ]],
-    column_config={
-        "Month": st.column_config.TextColumn("Month", width="small"),
-        "Purchase_Name": st.column_config.TextColumn("Item Name", width="medium"),
-        "Unit_Price": st.column_config.NumberColumn("Unit Price", format="₱%.2f"),
-        "Unit_Name": st.column_config.TextColumn("Unit", width="small"),
-        "Purchase_Qty": st.column_config.NumberColumn("Qty", format="%.2f"),
-        "Amount": st.column_config.NumberColumn("Final Cost", format="₱%.2f"),
-        "Cost Share": st.column_config.ProgressColumn(
-            "Relative Cost",
-            help="Cost scaled relative to the highest purchase in the current view",
-            format=" ",
-            min_value=0.0,
-            max_value=1.0,
-            width="medium"
-        )
-    },
-    hide_index=True,
-    use_container_width=True
-)
 
 
 
@@ -230,6 +168,68 @@ def dashboard():
         
         st.metric("Amount Spent", f" ₱ {vegamount_df['Total_Amt_Veg']:,.2f}")
 
+    st.title("Purchase Breakdown")
+
+    # 1. Load local CSV file directly
+    vegpurchasebd_df = pd.read_csv("VegPurchaseBD.csv")
+
+    # Clean numeric columns to prevent calculation errors
+    vegpurchasebd_df["Amount"] = pd.to_numeric(vegpurchasebd_df["Amount"], errors="coerce").fillna(0)
+    vegpurchasebd_df["Purchase_Qty"] = pd.to_numeric(vegpurchasebd_df["Purchase_Qty"], errors="coerce").fillna(0)
+    vegpurchasebd_df["Unit_Price"] = pd.to_numeric(vegpurchasebd_df["Unit_Price"], errors="coerce").fillna(0)
+
+    # 2. Month Filter Widget
+    months_list = ["All Months"] + list(vegpurchasebd_df["Month"].dropna().unique())
+    selected_month = st.selectbox("Filter by Month", options=months_list)
+
+    # Apply filter
+    if selected_month != "All Months":
+        filtered_df = vegpurchasebd_df[vegpurchasebd_df["Month"] == selected_month].copy()
+    else:
+        filtered_df = vegpurchasebd_df.copy()
+
+    # Calculate relative cost share for micro-bars
+    max_amount = filtered_df["Amount"].max() if not filtered_df.empty and filtered_df["Amount"].max() > 0 else 1
+    filtered_df["Cost Share"] = filtered_df["Amount"] / max_amount
+
+    # 3. Key Metrics Summary
+    total_spent = filtered_df["Amount"].sum()
+    col1, col2 = st.columns(2)
+    col1.metric("Total Spent", f"₱{total_spent:,.2f}")
+    col2.metric("Items Purchased", f"{len(filtered_df)} items")
+
+    st.divider()
+
+    # 4. Interactive Micro-Bar Table
+    st.dataframe(
+        filtered_df[[
+        "Month", 
+        "Purchase_Name", 
+        "Unit_Price", 
+        "Unit_Name", 
+        "Purchase_Qty", 
+        "Amount", 
+        "Cost Share"
+    ]],
+    column_config={
+        "Month": st.column_config.TextColumn("Month", width="small"),
+        "Purchase_Name": st.column_config.TextColumn("Item Name", width="medium"),
+        "Unit_Price": st.column_config.NumberColumn("Unit Price", format="₱%.2f"),
+        "Unit_Name": st.column_config.TextColumn("Unit", width="small"),
+        "Purchase_Qty": st.column_config.NumberColumn("Qty", format="%.2f"),
+        "Amount": st.column_config.NumberColumn("Final Cost", format="₱%.2f"),
+        "Cost Share": st.column_config.ProgressColumn(
+            "Relative Cost",
+            help="Cost scaled relative to the highest purchase in the current view",
+            format=" ",
+            min_value=0.0,
+            max_value=1.0,
+            width="medium"
+        )
+    },
+    hide_index=True,
+    use_container_width=True
+)
 
     
 
