@@ -34,13 +34,6 @@ def logout():
     st.session_state.authenticated = False
     st.rerun()
 
-st.sidebar.image ("Plattered Logo.png")
-   
-
-st.sidebar.title("Page Navigation")
-
-st.page_link ("pages/streamlit_app.py", label ="Meat Marketing Dashboard")
-st.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
 
 
 
@@ -52,6 +45,20 @@ st.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboa
 def dashboard():
 
     st.title("Household Consumption Dashboard")
+
+    st.sidebar.image ("Plattered Logo.png")
+   
+
+    st.sidebar.title("Page Navigation")
+
+    st.page_link ("streamlit_app.py", label ="Meat Marketing Dashboard")
+    st.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
+
+
+
+
+
+
 
     
    
