@@ -16,6 +16,28 @@ if "authenticated" not in st.session_state:
 # LOGIN
 # ----------------------------
 def login_screen():
+    # Hide the sidebar DOM container on the login page
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebar"] {
+                display: none !important;
+            }
+            [data-testid="stSidebarCollapsedControl"] {
+                display: none !important;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+
+
+
+
+
+
     st.title("🔐 User Login")
 
     password = st.text_input("Enter password", type="password")
