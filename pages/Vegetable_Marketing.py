@@ -47,8 +47,8 @@ def dashboard():
 
     st.sidebar.title("Page Navigation")
 
-    st.sidebar.page_link ("streamlit_app.py", label ="Meat Marketing Dashboard")
-    st.sidebar.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
+    st.sidebar.page_link ("streamlit_app.py", label ="Meat Marketing")
+    st.sidebar.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing")
 
 
 
