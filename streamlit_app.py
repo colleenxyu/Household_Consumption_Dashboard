@@ -54,7 +54,7 @@ def login_screen():
 # ----------------------------
 def logout():
     st.session_state.authenticated = False
-    st.rerun()
+    
     
 
 
