@@ -208,7 +208,7 @@ def dashboard():
         selected_category = st.selectbox("Filter by Category", options=categories_list)
 
     with col_filter3:
-        items_list = ["All Items"] + sorted(list(vegpurchasebd_df["Purchase_Name"].dropna().unique()))
+        items_list = ["All Items"] + sorted(list(purchase_df["Purchase_Name"].dropna().unique()))
         selected_item = st.selectbox("Filter by Item", options=items_list)
 
     # Apply Filters
