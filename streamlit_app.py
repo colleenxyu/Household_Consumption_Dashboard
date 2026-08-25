@@ -56,6 +56,23 @@ def dashboard():
     st.sidebar.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing")
 
 
+    st.sidebar.header("Vegetable Purchase Filters")
+    #LOAD DATA
+    vegpurchasedate_df = pd.read_csv ("VegPurchaseDate.csv")
+    vegduration_df = pd.read_csv ("VegDuration.csv")
+    vegamount_df = pd.read_csv ("VegTotalAmt.csv") 
+
+    #SELECTOR
+    selected_month = st.sidebar.selectbox(
+        "Select Month",
+        vegpurchasedate_df["Month"].dropna()
+    )
+
+    vegpurchasedate_df = vegpurchasedate_df[vegpurchasedate_df["Month"] == selected_month].iloc[0]
+    vegduration_df = vegduration_df[vegduration_df["Month"] == selected_month].iloc[0]
+    vegamount_df = vegamount_df[vegamount_df["Month"] == selected_month].iloc[0]
+
+
 
     ########### PURCHASE DATA 
     st.sidebar.title("Meat Purchase Filters")
