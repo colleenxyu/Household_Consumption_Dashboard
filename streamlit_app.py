@@ -91,7 +91,7 @@ def dashboard():
     purchasedur_df = purchasedur_df[purchasedur_df["Month"] == selected_month].iloc[0]
     amtspent_df = amtspent_df[amtspent_df["Month"] == selected_month].iloc[0]
 
-   
+    st.sidebar.button("Logout", on_click=logout)
 
     col1, col2, col3 = st.columns(3)
 
