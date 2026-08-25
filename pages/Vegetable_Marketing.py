@@ -173,34 +173,70 @@ def dashboard():
     # 1. Load local CSV file directly
     vegpurchasebd_df = pd.read_csv("VegPurchaseBD.csv")
 
-    # Clean numeric columns to prevent calculation errors
-    vegpurchasebd_df["Amount"] = pd.to_numeric(vegpurchasebd_df["Amount"], errors="coerce").fillna(0)
+    # Clean column headers (strips hidden trailing/leading spaces)
+    vegpurchasebd_df.columns = vegpurchasebd_df.columns.str.strip()
+
+    # Clean text columns (strips extra spaces)
+    for text_col in ["Month", "Purchase_Name", "Unit_Name"]:
+        if text_col in vegpurchasebd_df.columns:
+            vegpurchasebd_df[text_col] = vegpurchasebd_df[text_col].astype(str).str.strip()
+
+    # 2. Robust Numeric Cleaning
+    # Extract numbers and decimals from Purchase_Qty (handles "1.4 kg", "500 g", etc.)
+        vegpurchasebd_df["Purchase_Qty"] = (
+        vegpurchasebd_df["Purchase_Qty"]
+        .astype(str)
+        .str.extract(r"([\d.]+)", expand=False)
+)
     vegpurchasebd_df["Purchase_Qty"] = pd.to_numeric(vegpurchasebd_df["Purchase_Qty"], errors="coerce").fillna(0)
-    vegpurchasebd_df["Unit_Price"] = pd.to_numeric(vegpurchasebd_df["Unit_Price"], errors="coerce").fillna(0)
 
-    # 2. Month Filter Widget
-    months_list = ["All Months"] + list(vegpurchasebd_df["Month"].dropna().unique())
-    selected_month = st.selectbox("Filter by Month", options=months_list)
+    # Clean Unit_Price and Amount (removes currency symbols, commas, and spaces)
+    for col in ["Amount", "Unit_Price"]:
+        if col in vegpurchasebd_df.columns:
+            vegpurchasebd_df[col] = (
+            vegpurchasebd_df[col]
+            .astype(str)
+            .str.replace(r"[^\d.]", "", regex=True)
+        )
+        vegpurchasebd_df[col] = pd.to_numeric(vegpurchasebd_df[col], errors="coerce").fillna(0)
 
-    # Apply filter
+    # 3. Filter Widgets (Month & Item Name)
+    col_filter1, col_filter2 = st.columns(2)
+
+    with col_filter1:
+        months_list = ["All Months"] + sorted(list(vegpurchasebd_df["Month"].dropna().unique()))
+        selected_month = st.selectbox("Filter by Month", options=months_list)
+
+    with col_filter2:
+        items_list = ["All Items"] + sorted(list(vegpurchasebd_df["Purchase_Name"].dropna().unique()))
+        selected_item = st.selectbox("Filter by Item", options=items_list)
+
+    # Apply Filters
+    filtered_df = vegpurchasebd_df.copy()
+
     if selected_month != "All Months":
-        filtered_df = vegpurchasebd_df[vegpurchasebd_df["Month"] == selected_month].copy()
-    else:
-        filtered_df = vegpurchasebd_df.copy()
+        filtered_df = filtered_df[filtered_df["Month"] == selected_month]
+
+    if selected_item != "All Items":
+        filtered_df = filtered_df[filtered_df["Purchase_Name"] == selected_item]
 
     # Calculate relative cost share for micro-bars
     max_amount = filtered_df["Amount"].max() if not filtered_df.empty and filtered_df["Amount"].max() > 0 else 1
     filtered_df["Cost Share"] = filtered_df["Amount"] / max_amount
 
-    # 3. Key Metrics Summary
+    # 4. Key Metrics Summary (Total Spent, Items Count, Total Qty)
     total_spent = filtered_df["Amount"].sum()
-    col1, col2 = st.columns(2)
+    total_items = len(filtered_df)
+    total_qty = filtered_df["Purchase_Qty"].sum()
+
+    col1, col2, col3 = st.columns(3)
     col1.metric("Total Spent", f"₱{total_spent:,.2f}")
-    col2.metric("Items Purchased", f"{len(filtered_df)} items")
+    col2.metric("Items Purchased", f"{total_items} items")
+    col3.metric("Total Quantity", f"{total_qty:,.2f}")
 
     st.divider()
 
-    # 4. Interactive Micro-Bar Table
+    # 5. Interactive Micro-Bar Table
     st.dataframe(
         filtered_df[[
         "Month", 
