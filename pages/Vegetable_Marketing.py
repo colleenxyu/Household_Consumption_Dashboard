@@ -232,7 +232,7 @@ def dashboard():
     col1, col2, col3 = st.columns(3)
     col1.metric("Total Spent", f"₱{total_spent:,.2f}")
     col2.metric("Items Purchased", f"{total_items} items")
-    col3.metric("Total Quantity", f"{total_qty:,.2f}")
+    col3.metric("Total Quantity", f"{total_qty:,.2f} kg")
 
     st.divider()
 
