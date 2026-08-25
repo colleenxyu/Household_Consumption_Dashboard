@@ -169,6 +169,105 @@ def dashboard():
         
         st.metric("Amount Spent", f" ₱ {amtspent_df['Amt_Spent']:,.2f}")
 
+    st.title("Purchase Breakdown")
+
+    # 1. Load local CSV file directly
+    purchase_df = pd.read_csv("Purchase_Breakdown.csv")
+
+    # Clean column headers (strips hidden trailing/leading spaces)
+    purchase_df.columns = purchase_df.columns.str.strip()
+
+    # 2. Robust Numeric Cleaning
+    # Extract only numbers and decimals from Purchase_Quantity (handles "1.5 kg", "500g", etc.)
+    purchase_df["Purchase_Quantity"] = (
+    purchase_df["Purchase_Quantity"]
+    .astype(str)
+    .str.extract(r"([\d.]+)", expand=False)
+    )
+    purchase_df["Purchase_Quantity"] = pd.to_numeric(purchase_df["Purchase_Quantity"], errors="coerce").fillna(0)
+
+    # Clean Unit_Price and Amt_Spent (removes currency symbols, commas, and spaces)
+    for col in ["Amt_Spent", "Unit_Price"]:
+        if col in purchase_df.columns:
+         purchase_df[col] = (
+            purchase_df[col]
+            .astype(str)
+            .str.replace(r"[^\d.]", "", regex=True)
+        )
+        purchase_df[col] = pd.to_numeric(purchase_df[col], errors="coerce").fillna(0)
+
+    # 3. Filter Widgets (Month & Category)
+    col_filter1, col_filter2 = st.columns(2)
+
+    with col_filter1:
+        months_list = ["All Months"] + list(purchase_df["Month"].dropna().unique())
+        selected_month = st.selectbox("Filter by Month", options=months_list)
+
+    with col_filter2:
+        categories_list = ["All Categories"] + list(purchase_df["Purchase_Category"].dropna().unique())
+        selected_category = st.selectbox("Filter by Category", options=categories_list)
+
+    # Apply Filters
+    filtered_df = purchase_df.copy()
+
+    if selected_month != "All Months":
+        filtered_df = filtered_df[filtered_df["Month"] == selected_month]
+
+    if selected_category != "All Categories":
+        filtered_df = filtered_df[filtered_df["Purchase_Category"] == selected_category]
+
+    # Calculate relative cost share for micro-bars
+    max_amount = filtered_df["Amt_Spent"].max() if not filtered_df.empty and filtered_df["Amt_Spent"].max() > 0 else 1
+    filtered_df["Cost Share"] = filtered_df["Amt_Spent"] / max_amount
+
+    # 4. Key Metrics Summary
+    total_spent = filtered_df["Amt_Spent"].sum()
+    col1, col2 = st.columns(2)
+    col1.metric("Total Spent", f"₱{total_spent:,.2f}")
+    col2.metric("Items Purchased", f"{len(filtered_df)} items")
+
+    st.divider()
+
+    # 5. Interactive Micro-Bar Table
+    st.dataframe(
+        filtered_df[[
+        "Month", 
+        "Purchase_Name", 
+        "Purchase_Category",
+        "Unit_Price", 
+        "Purchase_Quantity", 
+        "Amt_Spent", 
+        "Cost Share"
+    ]],
+    column_config={
+        "Month": st.column_config.TextColumn("Month", width="small"),
+        "Purchase_Name": st.column_config.TextColumn("Item Name", width="medium"),
+        "Purchase_Category": st.column_config.TextColumn("Category", width="small"),
+        "Unit_Price": st.column_config.NumberColumn("Unit Price", format="₱%.2f"),
+        "Purchase_Quantity": st.column_config.NumberColumn("Qty", format="%.2f"),
+        "Amt_Spent": st.column_config.NumberColumn("Final Cost", format="₱%.2f"),
+        "Cost Share": st.column_config.ProgressColumn(
+            "Relative Cost",
+            help="Cost scaled relative to the highest purchase in the current view",
+            format=" ",
+            min_value=0.0,
+            max_value=1.0,
+            width="medium"
+        )
+    },
+    hide_index=True,
+    use_container_width=True
+)
+
+
+
+
+
+
+
+
+
+
 
 
     
