@@ -34,6 +34,18 @@ def logout():
     st.session_state.authenticated = False
     st.rerun()
 
+st.sidebar.image ("Plattered Logo.png")
+   
+
+st.sidebar.title("Page Navigation")
+
+st.page_link ("streamlit_app.py", label ="Meat Marketing Dashboard")
+st.page_link("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
+
+
+
+
+
 # ----------------------------
 # DASHBOARD
 # ----------------------------
@@ -41,14 +53,11 @@ def dashboard():
 
     st.title("Household Consumption Dashboard")
 
-    st.sidebar.image ("Plattered Logo.png")
+    
    
-
-    st.sidebar.title("Page Navigation")
-
-    st.sidebar.page_link ("pages/Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
-
+    ########### PURCHASE DATA 
     st.sidebar.title("Purchase Data Filter")
+
     # LOAD DATA
     purchasedate_df = pd.read_csv("Purchase_Date.csv")
     purchasedur_df = pd.read_csv("Purchase_Duration.csv")
