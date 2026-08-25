@@ -41,12 +41,14 @@ def dashboard():
 
     st.title("Household Consumption Dashboard")
 
-    st.subheader ("Purchase Data")
-
     st.sidebar.image ("Plattered Logo.png")
-    st.sidebar.header("Purchase Data Filter")
-    
+   
 
+    st.sidebar.title("Page Navigation")
+    st.sidebar.page_link ("streamlit_app.py", label ="Meat Marketing")
+    st.sidebar.page_link ("Vegetable_Marketing.py", label ="Vegetable Marketing Dashboard")
+
+    st.sidebar.title("Purchase Data Filter")
     # LOAD DATA
     purchasedate_df = pd.read_csv("Purchase_Date.csv")
     purchasedur_df = pd.read_csv("Purchase_Duration.csv")
