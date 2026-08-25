@@ -84,6 +84,7 @@ def dashboard():
     vegpurchasedate_df = pd.read_csv ("VegPurchaseDate.csv")
     vegduration_df = pd.read_csv ("VegDuration.csv")
     vegamount_df = pd.read_csv ("VegTotalAmt.csv") 
+    vegpurchasebd_df = pd.read_csv ("VegPurchaseBD.csv")
 
     #SELECTOR
     selected_month = st.sidebar.selectbox(
@@ -167,6 +168,7 @@ def dashboard():
     """, unsafe_allow_html=True)
         
         st.metric("Amount Spent", f" ₱ {amtspent_df['Amt_Spent']:,.2f}")
+
 
 
     
