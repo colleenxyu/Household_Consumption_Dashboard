@@ -39,7 +39,7 @@ def logout():
 # ----------------------------
 def dashboard():
 
-    st.title("Vegetable Marketing Dashboard")
+    st.title("Vegetable Marketing")
 
     st.subheader ("Purchase Data")
 
