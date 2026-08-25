@@ -45,6 +45,7 @@ def logout():
 def dashboard():
 
     st.title("Household Consumption Dashboard")
+    st.subheader("Meat Marketing Page")
 
     st.sidebar.image ("Plattered Logo.png")
    
