@@ -109,7 +109,7 @@ def dashboard():
     </style>
     """, unsafe_allow_html=True)
        
-        st.metric("Purchase Date", f"{purchasedate_df["Purchase_Date"]} days")
+        st.metric("Purchase Date", purchasedate_df["Purchase_Date"])
     
 
     with col2:
