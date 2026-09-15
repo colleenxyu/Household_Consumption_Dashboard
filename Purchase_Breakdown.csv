@@ -73,16 +73,41 @@ August,Ground Pork,Pork,463,1.014kg,469.48
 August,Ground Beef,Beef,173.60,0.286kg,173.60
 August,Cream Dory,Seafood,299,2 packs, 598
 August,Taiwan Pechay,Vegetable,99.96,0.435kg,99.96
-September,Bangus Unseasoned,Seafood,345,1pack,345
-September,Tuna Belly,Seafood,452.43,1pack,452.43
-September,FishCake,Seafood,52,1 pc,52.00
-September,Firm Tofu,Vegetable,90,1 pc,90
-September,Firm Tofu,Vegetable,90,1 pc,90
-September,Chicken Thigh,Poultry,265,1.074kg,284.61
-September,Chicken Leg Quarter,Poultry,255,1.164kg,296.82
-September,Bangus Belly,Seafood,185,1 pack,185.00
-September,Kasim,Pork,422,1.25kg,527.50
-September,Porkchop,Pork,422,1.048kg,442.26
+September-01,Bangus Unseasoned,Seafood,345,1pack,345
+September-01,Tuna Belly,Seafood,452.43,1pack,452.43
+September-01,FishCake,Seafood,52,1 pc,52.00
+September-01,Firm Tofu,Vegetable,90,1 pc,90
+September-01,Firm Tofu,Vegetable,90,1 pc,90
+September-01,Chicken Thigh,Poultry,265,1.074kg,284.61
+September-01,Chicken Leg Quarter,Poultry,255,1.164kg,296.82
+September-01,Bangus Belly,Seafood,185,1 pack,185.00
+September-01,Kasim,Pork,422,1.25kg,527.50
+September-01,Porkchop,Pork,422,1.048kg,442.26
+September-02,Egg,Dairy,385.00,1 tray,385.00
+September-02,Tuna Belly,Seafood,483.12,1 pack,483.12
+September-02,Bangus Belly,Seafood,185,1 pack,185.00
+September-02,Bangus Belly,Seafood,185,1 pack,185.00
+September-02,Cream Dory,Seafood,299,1 pack,299.00
+September-02,Vegetable,Broccoli,179.10,0.398kg,179.10
+September-02,Vegetable,Carrots,181.62,0.584kg,181.62
+September-02,Vegetable,Enoki,88,2 packs,176.00
+September-02,Vegetable,Garlic,0.21kg,1 pack,53.97
+September-02,Vegetable,Potato,0.317kg,1 pack,81.78
+September-02,Vegetable,Potato,0.578kg,1 pack,149.06
+September-02,Vegetable,White Onion,0.303kg,1 pack, 83.44
+September-02,Vegetable,Enoki,88,1 pack, 88
+September-02,Vegetable,Sayote,120.28,0.925kg,120.28
+September-02,Vegetable,TofuSoft,90,1 pc,90
+September-02,Grocery,Knorr Soup,62,3 packs,186.00
+September-02,Vegetable,Kangkong,54.34,0.273kg,54.34
+September-02,Vegetable,Japanese Tofu,68,1 pc,68.00
+September-02,Grocery,Chicken Oil,165,1 bottle, 165.00
+September-02,Grocery,Oyster Sauce,132,1 bottle,132.00
+September-02,Grocery,Knorr Seasoning,115,1 bottle,115.00
+September-02,Poultry,Chicken Breast,255,2.036kg,519.18
+September-02,Pork,Porkchop,520,1.082kg,562.64.00
+September-02,Poultry,Chicken Leg Quarter,255,2.128kg,542.64
+
 
 
 ,,,,,
